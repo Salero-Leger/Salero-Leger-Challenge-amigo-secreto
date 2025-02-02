@@ -7,6 +7,15 @@ function limpiardatos(){
     let limpiarCaja = document.getElementById("amigo");
     limpiarCaja.value = "";
 }
+function actualizarListaAmigos(){
+    const lista = document.getElementById("listaAmigos");
+     lista.innerHTML = ""
+    for (let i =0; i < AmigosSecretosAgregados.length; i++){
+        let li =document.createElement("li");
+        li.textContent = AmigosSecretosAgregados[i];
+        lista.appendChild(li);
+    }
+}
 
 //Funcion para capturar y agregar amigos al array AmigosSecretosAgregados
 function agregarAmigo(){
@@ -16,7 +25,7 @@ function agregarAmigo(){
         alert("Por favor, inserte un nombre.")
     }else {
         AmigosSecretosAgregados.push(datocapturado);
- 
+        actualizarListaAmigos()
     }
     limpiardatos();
     console.log (AmigosSecretosAgregados);
